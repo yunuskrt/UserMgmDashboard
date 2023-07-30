@@ -84,7 +84,6 @@ $(document).ready(async function () {
                     </div>
                   `)
 				$('#labelGrid').html(generateLabelGrid(data.skills))
-				console.log(data)
 
 				const projects_involved = data.projects_involved
 				const projects_of_depart = data.projects_of_depart
@@ -93,14 +92,16 @@ $(document).ready(async function () {
 					const chartData = [
 						{ name: 'Involved', y: projects_involved },
 						{ name: 'Not Involved', y: projects_not_involved },
-						// Add more data points as needed
 					]
 
 					// Create the chart
 					Highcharts.chart('chartContainer', {
 						chart: {
-							type: 'pie', // Change the chart type as needed (e.g., line, bar, etc.)
+							type: 'pie',
 							width: 300,
+						},
+						accessibility: {
+							enabled: false,
 						},
 						title: { text: null },
 						plotOptions: {
@@ -153,7 +154,6 @@ $(document).ready(async function () {
 									},
 								},
 								{
-									// Custom column for buttons
 									data: null,
 									render: function () {
 										// Create the remove and edit buttons
@@ -192,7 +192,6 @@ $(document).ready(async function () {
 
 										// Ajax DELETE request on click of confirmremove button
 										$('#confirmremoveprojectinvolved').on('click', function () {
-											console.log('Delete request of this project: ', data)
 											$.ajax({
 												url: `./api/projects.php?projectId=${data.id}`,
 												type: 'delete',

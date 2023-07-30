@@ -1,16 +1,4 @@
 $(document).ready(function () {
-	// $('.ui.dropdown').dropdown()
-	$('.sidebar-menu-toggler').on('click', function () {
-		var target = $(this).data('target')
-		$(target)
-			.sidebar({
-				dinPage: true,
-				transition: 'overlay',
-				mobileTransition: 'overlay',
-			})
-			.sidebar('toggle')
-	})
-
 	// Fetch JSON data using Ajax
 	$.get({
 		url: './api/users.php',
@@ -96,6 +84,9 @@ $(document).ready(function () {
 					type: 'pie',
 					width: 300,
 				},
+				accessibility: {
+					enabled: false,
+				},
 				title: { text: null },
 				plotOptions: {
 					pie: {
@@ -115,6 +106,9 @@ $(document).ready(function () {
 			Highcharts.chart('bardepartment', {
 				chart: {
 					type: 'bar',
+				},
+				accessibility: {
+					enabled: false,
 				},
 				title: {
 					text: null,
@@ -143,6 +137,9 @@ $(document).ready(function () {
 					type: 'column',
 					width: 300,
 				},
+				accessibility: {
+					enabled: false,
+				},
 				title: { text: null },
 				xAxis: {
 					categories: ['Male', 'Female'],
@@ -168,6 +165,9 @@ $(document).ready(function () {
 				chart: {
 					type: 'pie',
 					width: 300,
+				},
+				accessibility: {
+					enabled: false,
 				},
 				title: { text: null },
 				plotOptions: {
@@ -310,13 +310,6 @@ $(document).ready(function () {
 									type: 'put',
 									contentType: 'application/json',
 									success: function () {
-										console.log({
-											id: data.id,
-											username: $('#editusername').val(),
-											email: $('#editemail').val(),
-											role: $('#editrole').val(),
-											picture: $('#editpicture').val(),
-										})
 										alert('User Updated successfully!')
 									},
 								})
@@ -360,17 +353,6 @@ $(document).ready(function () {
 					})
 					location.reload()
 				})
-			})
-			// $('.ui.dropdown').dropdown()
-			$('.sidebar-menu-toggler').on('click', function () {
-				var target = $(this).data('target')
-				$(target)
-					.sidebar({
-						dinPage: true,
-						transition: 'overlay',
-						mobileTransition: 'overlay',
-					})
-					.sidebar('toggle')
 			})
 		},
 		error: function (error) {
