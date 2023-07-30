@@ -29,109 +29,60 @@
     <!-- top nav -->
 
     <div class="pusher">
-      <div class="main-content" style="margin-top:50px;">
-        <div class="ui grid stackable padded">
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile column"
-          >
-            <div class="ui fluid card">
+      <div class="container" style="margin-top:50px;">
+        <div class="ui stackable grid padded center aligned">
+          <div class="ui four stackable cards">
+
+            <div class="card" style="border:none;box-shadow:none;">
+              <div class="image">
+                <div id="pierole">
+                </div>
+              </div> 
               <div class="content">
-                <div class="ui right floated header red">
-                  <i class="icon shopping cart"></i>
-                </div>
-                <div class="header">
-                  <div class="ui red header">
-                    3958
-                  </div>
-                </div>
-                <div class="meta">
-                  orders
-                </div>
-                <div class="description">
-                  Elliot requested permission to view your contact details
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui red button">More Info</div>
-                </div>
+                <div class="header center aligned" style="color:lightskyblue;">Employee Role Distribution</div>
               </div>
             </div>
+
+            <div class="card" style="border:none;box-shadow:none;">
+              <div class="image">
+                <div id="bardepartment">
+                </div>
+              </div> 
+              <div class="content">
+                <div class="header center aligned" style="color:blueviolet;">Employee Count by Department</div>
+              </div>
+            </div>
+
+            <div class="card" style="border:none;box-shadow:none;">
+              <div class="image">
+                <div id="columngender">
+                </div>
+              </div> 
+              <div class="content">
+                <div class="header center aligned" style="color:darkseagreen;">Employee Gender Count</div>
+              </div>
+            </div>
+
+            <div class="card" style="border:none;box-shadow:none;">
+              <div class="image">
+                <div id="pieage">
+                </div>
+              </div> 
+              <div class="content">
+                <div class="header center aligned" style="color:cornflowerblue;">Employee Age Distribution</div>
+              </div>
+            </div>
+            
+               
+                
+              </div>
+              
+              
           </div>
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile column"
-          >
-            <div class="ui fluid card">
-              <div class="content">
-                <div class="ui right floated header green">
-                  <i class="icon clock"></i>
-                </div>
-                <div class="header">
-                  <div class="ui header green">57.6%</div>
-                </div>
-                <div class="meta">
-                  Time
-                </div>
-                <div class="description">
-                  Elliot requested permission to view your contact details
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui green button">More Info</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile column"
-          >
-            <div class="ui fluid card">
-              <div class="content">
-                <div class="ui right floated header teal">
-                  <i class="icon briefcase"></i>
-                </div>
-                <div class="header">
-                  <div class="ui teal header">3112</div>
-                </div>
-                <div class="meta">
-                  Saves
-                </div>
-                <div class="description">
-                  Elliot requested permission to view your contact details
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui teal button">More Info</div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile column"
-          >
-            <div class="ui fluid card">
-              <div class="content">
-                <div class="ui right floated header purple">
-                  <i class="icon trophy"></i>
-                </div>
-                <div class="header">
-                  <div class="ui purple header">9805</div>
-                </div>
-                <div class="meta">
-                  Views
-                </div>
-                <div class="description">
-                  Elliot requested permission to view your contact details
-                </div>
-              </div>
-              <div class="extra content">
-                <div class="ui two buttons">
-                  <div class="ui purple button">More Info</div>
-                </div>
-              </div>
-            </div>
+
+
+
+          
           </div>
         </div>
         <div class="ui grid stackable padded">
@@ -318,56 +269,7 @@
             <!-- Add User Modal -->
           </div>
         </div>
-        <div class="ui grid stackable padded">
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile  center aligned column"
-          >
-            <div class="ui teal statistic">
-              <div class="value">
-                5,550
-              </div>
-              <div class="label">
-                Downloads
-              </div>
-            </div>
-          </div>
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile  center aligned column"
-          >
-            <div class="ui purple statistic">
-              <div class="value">
-                50+
-              </div>
-              <div class="label">
-                Developers
-              </div>
-            </div>
-          </div>
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile  center aligned column"
-          >
-            <div class="ui green statistic">
-              <div class="value">
-                800+
-              </div>
-              <div class="label">
-                Commits
-              </div>
-            </div>
-          </div>
-          <div
-            class="four wide computer eight wide tablet sixteen wide mobile center aligned column"
-          >
-            <div class="ui purple statistic">
-              <div class="value">
-                1000+
-              </div>
-              <div class="label">
-                Cups of Coffee
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
     </div>
     

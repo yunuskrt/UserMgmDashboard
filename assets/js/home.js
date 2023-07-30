@@ -16,15 +16,184 @@ $(document).ready(function () {
 		url: './api/users.php',
 		dataType: 'json',
 		success: function (data) {
+			function prepareData() {
+				// column chart
+				var maleCount = 0
+				var femaleCount = 0
+				// column chart
+
+				// bar chart
+				var departmentCount = {}
+				// bar chart
+
+				// pie chart
+				var adminCount = 0
+				var superadminCount = 0
+				var employeeCount = 0
+				// pie chart
+
+				//pie chart 2
+				var twenties = 0
+				var thirties = 0
+				var fourties = 0
+				var fiftyplus = 0
+				// pie chart 2
+
+				data.map((item) => {
+					// column
+					if (item.gender === 'Male') {
+						maleCount++
+					} else {
+						femaleCount++
+					}
+					// bar
+					let department = item.department
+					if (departmentCount.hasOwnProperty(department)) {
+						departmentCount[department]++
+					} else {
+						departmentCount[department] = 1
+					}
+					// pie
+					if (item.role === 'Admin') {
+						adminCount++
+					} else if (item.role === 'Superadmin') {
+						superadminCount++
+					} else {
+						employeeCount++
+					}
+					// pie 2
+					if (item.age >= 20 && item.age < 30) {
+						twenties++
+					} else if (item.age >= 30 && item.age < 40) {
+						thirties++
+					} else if (item.age >= 40 && item.age < 50) {
+						fourties++
+					} else {
+						fiftyplus++
+					}
+				})
+
+				return {
+					column: [maleCount, femaleCount],
+					bar: [Object.keys(departmentCount), Object.values(departmentCount)],
+					pie: [
+						{ name: 'Admin', y: adminCount },
+						{ name: 'Superadmin', y: superadminCount },
+						{ name: 'Employee', y: employeeCount },
+					],
+					pie2: [
+						{ name: '20-29', y: twenties },
+						{ name: '30-39', y: thirties },
+						{ name: '40-49', y: fourties },
+						{ name: '50+', y: fiftyplus },
+					],
+				}
+			}
+
+			const chartsData = prepareData()
+			Highcharts.chart('pierole', {
+				chart: {
+					type: 'pie',
+					width: 300,
+				},
+				title: { text: null },
+				plotOptions: {
+					pie: {
+						dataLabels: {
+							enabled: false,
+						},
+					},
+				},
+				series: [
+					{
+						name: 'Roles',
+						colorByPoint: true,
+						data: chartsData.pie,
+					},
+				],
+			})
+			Highcharts.chart('bardepartment', {
+				chart: {
+					type: 'bar',
+				},
+				title: {
+					text: null,
+				},
+				xAxis: {
+					categories: chartsData.bar[0],
+					title: {
+						text: 'Department',
+					},
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: 'Number of Employees',
+					},
+				},
+				series: [
+					{
+						name: 'Employees',
+						data: chartsData.bar[1],
+					},
+				],
+			})
+			Highcharts.chart('columngender', {
+				chart: {
+					type: 'column',
+					width: 300,
+				},
+				title: { text: null },
+				xAxis: {
+					categories: ['Male', 'Female'],
+					title: {
+						text: 'Gender',
+					},
+				},
+				yAxis: {
+					min: 0,
+					title: {
+						text: 'Number of Employees',
+					},
+				},
+				series: [
+					{
+						name: 'Employees',
+						data: chartsData.column,
+					},
+				],
+			})
+
+			Highcharts.chart('pieage', {
+				chart: {
+					type: 'pie',
+					width: 300,
+				},
+				title: { text: null },
+				plotOptions: {
+					pie: {
+						dataLabels: {
+							enabled: false,
+						},
+					},
+				},
+
+				series: [
+					{
+						name: 'Age',
+						colorByPoint: true,
+						data: chartsData.pie2,
+					},
+				],
+			})
+
 			$('#userTable').DataTable({
 				responsive: true,
 				data: data,
 				columns: [
 					{
-						// Custom column for buttons
 						data: null,
 						render: function (data) {
-							// Create the remove and edit buttons
 							return (
 								'<h5 class="ui image header">' +
 								'<img src="' +
@@ -44,7 +213,6 @@ $(document).ready(function () {
 					{ data: 'age', title: 'Age' },
 					{ data: 'enteredDate', title: 'Entered Date' },
 					{
-						// Custom column for buttons
 						data: null,
 						render: function () {
 							// Create the remove and edit buttons
