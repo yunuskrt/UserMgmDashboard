@@ -16,6 +16,23 @@ if ($method === 'GET'){
             } 
             header('Content-Type: application/json');
             echo json_encode($projects);
+        }else{
+            // Get project
+            $projectId = intval($_GET['projectId']);
+            $sql_statement = "SELECT * FROM Project WHERE id=$projectId";
+
+            $resultProject = mysqli_query($db, $sql_statement);
+            $row = mysqli_fetch_assoc($resultProject);
+
+            $resultStep=mysqli_query($db, "SELECT * FROM Step WHERE projectId=$projectId");
+            $steps = array();
+            while ($rowStep = mysqli_fetch_assoc($resultStep)) {
+                $steps[] = $rowStep;
+            } 
+            $row['steps'] = $steps;
+
+            header('Content-Type: application/json');
+            echo json_encode($row);
         }
     } catch (\Throwable $th) {
         http_response_code(500);

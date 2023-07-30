@@ -12,6 +12,7 @@ function useQuery() {
 	}
 	return queries
 }
+
 function generateLabelGrid(labelsArray) {
 	let htmlElement = ''
 	let i

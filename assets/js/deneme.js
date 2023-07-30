@@ -11,12 +11,12 @@ $(document).ready(function () {
 			.sidebar('toggle')
 	})
 
-	// Fetch JSON data using Ajax
+	// Fetch JSON data from example.php using Ajax
 	$.get({
 		url: './api/users.php',
 		dataType: 'json',
 		success: function (data) {
-			$('#userTable').DataTable({
+			$('#denemeTable').DataTable({
 				responsive: true,
 				data: data,
 				columns: [
@@ -24,13 +24,13 @@ $(document).ready(function () {
 						// Custom column for buttons
 						data: null,
 						render: function (data) {
-							// Create the remove and edit buttons
+							// Create the remove and eddit buttons
 							return (
 								'<h5 class="ui image header">' +
 								'<img src="' +
 								data.picture +
 								'" class="ui mini rounded image">' +
-								'<div class="content" id="userItemTable">' +
+								'<div class="content">' +
 								data.name +
 								'<div class="sub header">' +
 								data.department +
@@ -72,12 +72,6 @@ $(document).ready(function () {
 					info: '<button class="ui primary active button" id="adduserbutton"><i class="add user icon"></i>Add User</button>',
 				},
 				rowCallback: function (row, data) {
-					$(row)
-						.find('#userItemTable')
-						.on('click', function () {
-							// Navigate to user details page
-							window.location.href = '/usermgmdash/users.php?userId=' + data.id
-						})
 					$(row)
 						.find('.remove')
 						.on('click', function () {
