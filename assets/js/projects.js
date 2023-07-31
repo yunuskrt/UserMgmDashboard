@@ -94,7 +94,9 @@ $(document).ready(async function () {
 				$('#projectprogress').progress({
 					percent: percent,
 				})
-				$('#projectprogresslabel').text(`${percent}% of steps completed`)
+				$('#projectprogresslabel').text(
+					`${percent}% of project steps completed`
+				)
 
 				// handle add step
 				$('#addstepbutton').on('click', function () {

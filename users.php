@@ -87,7 +87,7 @@
     <div class="three column">
       <div class="ui container center aligned">
         <div class="column">
-          <h1 class="header center aligned">Users</h1>
+          <h1 class="header center aligned">Employees</h1>
         </div>
       </div>
       <div class="ui container column">
